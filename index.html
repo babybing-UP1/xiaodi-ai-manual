@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小镝AI拜访助手 操作手册 V1.5</title>
+
+<!-- Open Graph / 微信分享卡片 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="小镝AI拜访助手 操作手册 V1.5">
+<meta property="og:description" content="企业级智能销售赋能工具 · 云镝">
+<meta property="og:image" content="https://voluble-liger-706226.netlify.app/share-thumbnail.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://voluble-liger-706226.netlify.app">
+<meta property="og:site_name" content="小镝AI拜访助手">
+
+<!-- Twitter Card (兼顾其他平台) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="小镝AI拜访助手 操作手册 V1.5">
+<meta name="twitter:description" content="企业级智能销售赋能工具 · 云镝">
+<meta name="twitter:image" content="https://voluble-liger-706226.netlify.app/share-thumbnail.jpg">
+
+<!-- 微信专用 -->
+<meta itemprop="name" content="小镝AI拜访助手 操作手册 V1.5">
+<meta itemprop="description" content="企业级智能销售赋能工具 · 云镝">
+<meta itemprop="image" content="https://voluble-liger-706226.netlify.app/share-thumbnail.jpg">
+<style>
+  /* ========== DESIGN SYSTEM ========== */
+  :root {
+    --blue-50:  #EBF5FB;
+    --blue-100: #D6EAF8;
+    --blue-200: #AED6F1;
+    --blue-300: #85C1E9;
+    --blue-400: #5DADE2;
+    --blue-500: #3498DB;
+    --blue-600: #2E86C1;
+    --blue-700: #2874A6;
+    --blue-800: #21618C;
+    --blue-900: #1B4F72;
+
+    --warm-50:  #FEF9E7;
+    --warm-400: #F4D03F;
+    --warm-500: #E67E22;
+    --warm-600: #CA6F1E;
+
+    --red-50:  #FDEDEC;
+    --red-500: #E74C3C;
+    --red-600: #C0392B;
+
+    --gray-50:  #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-300: #CBD5E1;
+    --gray-400: #94A3B8;
+    --gray-500: #64748B;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1E293B;
+    --gray-900: #0F172A;
+
+    --primary: var(--blue-600);
+    --primary-light: var(--blue-500);
+    --primary-lighter: var(--blue-300);
+    --primary-bg: var(--blue-50);
+    --primary-ultra-light: #F7FAFD;
+
+    --card-bg: #FFFFFF;
+    --card-border: var(--gray-200);
+    --text: var(--gray-800);
+    --text-secondary: var(--gray-500);
+    --text-muted: var(--gray-400);
+
+    --radius-sm: 8px;
+    --radius: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 6px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.03);
+    --shadow-md: 0 10px 25px rgba(0,0,0,0.06), 0 4px 10px rgba(0,0,0,0.04);
+    --shadow-lg: 0 20px 50px rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.04);
+    --shadow-card: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(46,134,193,0.07);
+
+    --sidebar-width: 288px;
+    --font-sans: "SF Pro Display", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", system-ui, sans-serif;
+    --font-mono: "SF Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
+
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 32px;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--text);
+    background: var(--primary-ultra-light);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ========== TYPOGRAPHY ========== */
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  ::selection {
+    background: var(--blue-200);
+    color: var(--blue-800);
+  }
+
+  /* ========== SIDEBAR ========== */
+  .sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(175deg, #1B4F72 0%, #21618C 30%, #2874A6 100%);
+    color: #fff;
+    padding: 0;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+  }
+
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 20% 30%, rgba(133,193,233,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(174,214,241,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .sidebar-header {
+    padding: 28px 24px 20px;
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .sidebar-logo-mark {
+    width: 42px;
+    height: 42px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sidebar-logo-text {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.3px;
+  }
+
+  .sidebar-logo-sub {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.6;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-nav-wrap {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 12px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .sidebar-nav-wrap::-webkit-scrollbar { width: 3px; }
+  .sidebar-nav-wrap::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+
+  .sidebar-nav { list-style: none; }
+  .sidebar-nav li { margin-bottom: 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 13.5px;
+    border-radius: 8px;
+    transition: all 0.25s var(--ease-out);
+    line-height: 1.45;
+    position: relative;
+    letter-spacing: 0.2px;
+  }
+
+  .sidebar-nav a:hover {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+  }
+
+  .sidebar-nav a.active {
+    background: rgba(255,255,255,0.14);
+    color: #fff;
+    font-weight: 500;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+  }
+
+  .sidebar-nav a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 18px;
+    background: #85C1E9;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .sidebar-nav a .nav-bullet {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .sidebar-nav a.active .nav-bullet,
+  .sidebar-nav a:hover .nav-bullet {
+    opacity: 1;
+  }
+
+  .sidebar-nav .nav-chapter {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.9);
+    padding: 10px 14px;
+    margin-top: 6px;
+  }
+
+  .sidebar-nav .nav-chapter:first-child { margin-top: 0; }
+
+  .sidebar-nav .nav-sub {
+    font-size: 13px;
+    padding-left: 32px;
+  }
+
+  .sidebar-nav .nav-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.07);
+    margin: 8px 14px;
+  }
+
+  .sidebar-footer {
+    padding: 14px 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 1;
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.3px;
+  }
+
+  /* ========== MAIN CONTENT ========== */
+  .main {
+    flex: 1;
+    min-width: 0;
+    background: var(--primary-ultra-light);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    position: relative;
+    background: linear-gradient(160deg, #1B4F72 0%, #2471A3 40%, #2E86C1 100%);
+    color: #fff;
+    padding: 64px 52px 56px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: orb-drift 20s ease-in-out infinite;
+  }
+
+  .hero-orb-1 {
+    width: 340px; height: 340px;
+    background: rgba(133,193,233,0.18);
+    top: -80px; right: -60px;
+    animation-delay: 0s;
+  }
+
+  .hero-orb-2 {
+    width: 220px; height: 220px;
+    background: rgba(174,214,241,0.12);
+    bottom: -40px; left: 10%;
+    animation-delay: -7s;
+  }
+
+  .hero-orb-3 {
+    width: 160px; height: 160px;
+    background: rgba(253,237,236,0.06);
+    top: 40%; right: 30%;
+    animation-delay: -14s;
+  }
+
+  @keyframes orb-drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -20px) scale(1.05); }
+    50% { transform: translate(-15px, 25px) scale(0.95); }
+    75% { transform: translate(-25px, -15px) scale(1.03); }
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: radial-gradient(circle at 25% 25%, #fff 1px, transparent 1px),
+                      radial-gradient(circle at 75% 75%, #fff 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 span {
+    display: inline-block;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 7px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.18);
+    letter-spacing: 0.3px;
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .hero-badge:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  /* Hero scroll indicator */
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    right: 52px;
+    z-index: 2;
+    opacity: 0.4;
+    animation: scroll-hint 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-hint {
+    0%, 100% { transform: translateY(0); opacity: 0.35; }
+    50% { transform: translateY(6px); opacity: 0.6; }
+  }
+
+  /* ========== CONTENT AREA ========== */
+  .content {
+    padding: 48px 56px 64px;
+    width: 100%;
+  }
+
+  /* Text block readability — paragraphs get capped width, cards fill freely */
+  .content > .section > p,
+  .content > .section > ul,
+  .content > .section > ol {
+    max-width: 860px;
+  }
+
+  /* ========== SECTION TITLES ========== */
+  .section {
+    margin-bottom: 56px;
+    scroll-margin-top: 32px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  }
+
+  .section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blue-800);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--blue-100);
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--blue-500);
+    border-radius: 1px;
+  }
+
+  .section-title .icon-box {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(46,134,193,0.2);
+  }
+
+  .subsection-title {
+    font-size: 19px;
+    font-weight: 650;
+    color: var(--gray-800);
+    margin: 36px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .subsection-title::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(180deg, var(--blue-500), var(--blue-300));
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .sub-subsection-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--blue-700);
+    margin: 28px 0 14px;
+    padding-left: 14px;
+    border-left: 3px solid var(--blue-300);
+  }
+
+  /* ========== CARDS ========== */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--card-border);
+    transition: all 0.3s var(--ease-out);
+    position: relative;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--blue-200);
+  }
+
+  /* Highlight card — blue */
+  .card-highlight {
+    background: linear-gradient(135deg, var(--blue-50), #F0F7FC);
+    border: 1px solid var(--blue-100);
+    border-left: 4px solid var(--blue-500);
+  }
+
+  .card-highlight:hover {
+    background: linear-gradient(135deg, #E3F0FA, #EEF5FB);
+    border-color: var(--blue-200);
+  }
+
+  /* Tip card — warm amber */
+  .card-tip {
+    background: linear-gradient(135deg, var(--warm-50), #FCF9F0);
+    border: 1px solid #F9E8A0;
+    border-left: 4px solid var(--warm-400);
+  }
+
+  .card-tip:hover {
+    background: linear-gradient(135deg, #FDF6E0, #FBF3EE);
+    border-color: #F5D97A;
+  }
+
+  /* Warning card — red */
+  .card-warning {
+    background: linear-gradient(135deg, var(--red-50), #FDF2F1);
+    border: 1px solid #F5B7B1;
+    border-left: 4px solid var(--red-500);
+  }
+
+  .card-warning:hover {
+    background: linear-gradient(135deg, #FCECEA, #FCEAE8);
+  }
+
+  /* Step card */
+  .card-step {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 22px 28px;
+  }
+
+  .step-number {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(46,134,193,0.25);
+  }
+
+  .card-step .card-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--blue-50);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--blue-100);
+  }
+
+  /* Steps flow */
+  .steps-flow { counter-reset: step-counter; }
+  .step-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 0;
+    counter-increment: step-counter;
+  }
+  .step-item + .step-item { border-top: 1px solid var(--gray-200); }
+
+  .step-item .step-num {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, var(--blue-500), var(--blue-400));
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .step-item .step-text {
+    flex: 1;
+    padding-top: 2px;
+    font-size: 14px;
+    color: var(--gray-700);
+  }
+
+  /* Tag button simulation */
+  .tag-btn {
+    display: inline-block;
+    background: var(--blue-50);
+    color: var(--blue-700);
+    padding: 3px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 13.5px;
+    border: 1px solid var(--blue-200);
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    transition: all 0.2s var(--ease-out);
+  }
+
+  .card-highlight .tag-btn {
+    background: rgba(255,255,255,0.7);
+    border-color: var(--blue-200);
+  }
+
+  /* Feature grid */
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+
+  .feature-item {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    text-align: center;
+    transition: all 0.35s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue-300), var(--blue-500), var(--blue-300));
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+
+  .feature-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+    border-color: var(--blue-200);
+  }
+
+  .feature-item:hover::before { opacity: 1; }
+
+  .feature-item .f-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+    background: var(--blue-50);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .feature-item:hover .f-icon {
+    background: var(--blue-100);
+    transform: scale(1.05);
+  }
+
+  .feature-item .f-label {
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--gray-800);
+    letter-spacing: -0.01em;
+  }
+
+  .feature-item p {
+    color: var(--gray-400);
+    line-height: 1.5;
+  }
+
+  /* Update block */
+  .update-block {
+    background: linear-gradient(135deg, #E8F4FD, #F0F7FF);
+    border: 1px solid var(--blue-200);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .update-block::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 80px;
+    height: 80px;
+    background: var(--blue-100);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+
+  .update-block h3 {
+    font-size: 16px;
+    font-weight: 650;
+    color: var(--blue-800);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+
+  .update-block p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.85;
+    max-width: 90%;
+    position: relative;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    background: linear-gradient(180deg, #E8F2FA, #DFECF5);
+    border-top: 1px solid var(--blue-200);
+    padding: 32px 52px;
+    text-align: center;
+    position: relative;
+  }
+
+  .footer-brand {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue-800);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .footer-meta {
+    font-size: 13.5px;
+    color: var(--gray-500);
+    line-height: 2;
+  }
+
+  .footer-meta strong {
+    color: var(--blue-700);
+    font-weight: 600;
+  }
+
+  .footer-sep {
+    display: inline-block;
+    margin: 0 14px;
+    color: var(--blue-200);
+    font-weight: 300;
+  }
+
+  /* ========== BACK TO TOP ========== */
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 90;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.4s var(--ease-out);
+    color: var(--gray-600);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--blue-50);
+    border-color: var(--blue-300);
+    color: var(--blue-600);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  /* ========== MOBILE ========== */
+  .mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 200;
+    width: 44px;
+    height: 44px;
+    background: rgba(30,64,95,0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s var(--ease-out);
+  }
+
+  .mobile-nav-toggle:hover {
+    background: rgba(30,64,95,0.95);
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.35s var(--ease-out);
+  }
+
+  .overlay.show {
+    display: block;
+    opacity: 1;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (min-width: 1600px) {
+    .content { padding: 56px 80px 72px; }
+    .hero { padding: 72px 72px 64px; }
+    .hero h1 { font-size: 44px; }
+    .hero-subtitle { font-size: 19px; }
+    .content > .section > p,
+    .content > .section > ul,
+    .content > .section > ol {
+      max-width: 900px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    :root { --sidebar-width: 260px; }
+    .content { padding: 40px 32px 56px; }
+    .hero { padding: 52px 36px 44px; }
+    .hero h1 { font-size: 32px; }
+  }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+
+    .mobile-nav-toggle { display: flex; }
+
+    .sidebar {
+      position: fixed;
+      left: -100%;
+      top: 0;
+      width: 288px;
+      height: 100dvh;
+      transition: left 0.4s var(--ease-out);
+      padding-top: 0;
+      z-index: 150;
+    }
+
+    .sidebar.open { left: 0; }
+
+    .sidebar-header { padding-top: 76px; }
+
+    .content { padding: 32px 20px 48px; }
+
+    .hero {
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .hero-content { margin: 0 auto; }
+    .hero h1 { font-size: 28px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-badges { justify-content: center; }
+    .hero-scroll-hint { display: none; }
+
+    .section-title { font-size: 22px; }
+    .subsection-title { font-size: 17px; }
+    .feature-list { grid-template-columns: 1fr 1fr; }
+    .card { padding: 18px 20px; }
+    .card-step { flex-direction: column; gap: 12px; }
+    .footer { padding: 24px 20px; }
+
+    .back-to-top { bottom: 20px; right: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 40px 18px 32px; }
+    .hero h1 { font-size: 24px; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 2px; }
+    .content { padding: 24px 14px 40px; }
+    .section { margin-bottom: 40px; }
+    .section-title { font-size: 19px; }
+    .card { padding: 16px 18px; border-radius: 10px; }
+    .feature-list { grid-template-columns: 1fr; }
+    .update-block p { max-width: 100%; }
+    .footer-meta { font-size: 12px; }
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
+    .section { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Mobile Toggle -->
+<button class="mobile-nav-toggle" id="menuToggle" aria-label="菜单">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <path d="M8 21h8M12 17v4"/>
+        </svg>
+      </div>
+      <div class="sidebar-logo-text">
+        小镝AI拜访助手<br><span class="sidebar-logo-sub">操作手册 V1.5</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav-wrap">
+    <ul class="sidebar-nav">
+      <li><a href="#intro" class="nav-chapter">产品简介</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#quickstart" class="nav-chapter">一、快速上手：登录与首页</a></li>
+      <li><a href="#quickstart-1" class="nav-sub"><span class="nav-bullet"></span>1. 登录步骤</a></li>
+      <li><a href="#quickstart-2" class="nav-sub"><span class="nav-bullet"></span>2. 首页功能</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#core" class="nav-chapter">二、核心功能：拜访全流程</a></li>
+      <li><a href="#core-before" class="nav-sub"><span class="nav-bullet"></span>（一）拜访前：创建与准备</a></li>
+      <li><a href="#core-during" class="nav-sub"><span class="nav-bullet"></span>（二）拜访中：录音与记录</a></li>
+      <li><a href="#core-after" class="nav-sub"><span class="nav-bullet"></span>（三）拜访后：关联与整理</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#data" class="nav-chapter">三、数据管理：企业记录</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#settings" class="nav-chapter">四、个人设置：账号与系统</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#share" class="nav-chapter">五、分享</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#feedback" class="nav-chapter">六、意见反馈</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#tips" class="nav-chapter">七、温馨提示</a></li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">云镝 · 企业级智能销售赋能</div>
+</aside>
+
+<!-- Main -->
+<main class="main">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+    </div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Operation Manual</div>
+      <h1>小镝AI拜访助手<span> 操作手册</span></h1>
+      <p class="hero-subtitle">深度赋能销售访谈全流程 · 企业级智能销售工具</p>
+      <div class="hero-badges">
+        <span class="hero-badge">Version 1.5</span>
+        <span class="hero-badge">微信小程序</span>
+        <span class="hero-badge">AI 驱动</span>
+        <span class="hero-badge">语音识别 + 大模型</span>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="content">
+
+    <!-- ===== 产品简介 ===== -->
+    <section class="section" id="intro">
+      <h2 class="section-title">
+        <span class="icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+        </span>
+        产品简介
+      </h2>
+
+      <div class="update-block">
+        <h3>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;">
+            <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+          </svg>
+          V1.5 新增功能
+        </h3>
+        <p>优化调研手卡生成流程，优化AI纪要商机提取，项目建议书部分的编辑和导出，增加意见反馈部分的上传图片功能，增加消息通知处查看意见反馈的回复的功能，增加后台回复意见反馈的功能，增加支持的wav格式录音文件上传的功能，优化UI展示，Bug修复。若有团队协作部分的需求，请联系 <strong>王雷 15091007230</strong>。</p>
+      </div>
+
+      <div class="card">
+        <p>小镝AI拜访助手是<strong>企业级智能销售赋能工具</strong>，深度融合语音识别（ASR）、自然语言处理（NLP）与大模型（LLM）技术，实现对业务员入企拜访全程录音的：</p>
+        <div class="feature-list" style="margin-top: 18px;">
+          <div class="feature-item">
+            <div class="f-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div class="f-label">自动化会议纪要生成</div>
+          </div>
+          <div class="feature-item">
+            <div class="f-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="f-label">结构化商机挖掘</div>
+          </div>
+          <div class="feature-item">
+            <div class="f-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div class="f-label">风险预警</div>
+          </div>
+          <div class="feature-item">
+            <div class="f-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="f-label">客户画像沉淀</div>
+          </div>
+        </div>
+        <p style="margin-top: 14px;">助力销售人员在整个销售访谈环节更好地赋能，提高工作效率，提高销售签单率。</p>
+      </div>
+
+      <p style="color: var(--gray-500); font-size: 13.5px; margin-top: 10px;">
+        本手册是小镝AI拜访助手的参考指南，针对产品界面的详细描述和操作步骤的参考资料。
+      </p>
+    </section>
+
+    <!-- ===== 一、快速上手 ===== -->
+    <section class="section" id="quickstart">
+      <h2 class="section-title">
+        <span class="icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </span>
+        一、快速上手：登录与首页
+      </h2>
+
+      <h3 class="subsection-title" id="quickstart-1">1. 登录步骤</h3>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">1</div>
+        <div>
+          <strong>搜索小程序</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">在微信搜索栏搜索<span class="tag-btn">小镝AI拜访助手</span>，即可找到小程序。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">2</div>
+        <div>
+          <strong>进入首页</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">打开小程序，展示3个模块 <span class="tag-btn">首页</span> <span class="tag-btn">企业</span> <span class="tag-btn">我的</span>。未登录状态下点击任意功能按钮（如"开始新的访谈活动"），会自动跳转至登录页。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">3</div>
+        <div>
+          <strong>手机号登录</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">输入手机号，勾选同意<span style="color: var(--blue-600);">《用户协议》</span>和<span style="color: var(--blue-600);">《隐私政策》</span>，获取并输入验证码，点击 <span class="tag-btn">登录</span> 即可（未注册手机号会自动注册）。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">4</div>
+        <div>
+          <strong>微信快捷登录（可选）</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">勾选同意《用户协议》和《隐私政策》，点击 <span class="tag-btn">其他登录方式</span>，使用微信快捷登录。</p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title" id="quickstart-2">2. 首页功能</h3>
+
+      <p style="margin-bottom: 18px; color: var(--gray-700);">登录后首页显示<strong>两个核心入口</strong>，满足不同场景需求：</p>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="f-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              <polyline points="10 15 12 17 14 15"/>
+            </svg>
+          </div>
+          <div class="f-label">开始新的访谈活动</div>
+          <p style="font-size:12.5px; color: var(--gray-400); margin-top:6px;">适合提前准备的拜访，可录入企业信息、生成提问大纲</p>
+        </div>
+        <div class="feature-item">
+          <div class="f-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16"/>
+            </svg>
+          </div>
+          <div class="f-label">直接开始访谈</div>
+          <p style="font-size:12.5px; color: var(--gray-400); margin-top:6px;">适合临时拜访，无需提前设置，录音后可后续补填信息</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 二、核心功能 ===== -->
+    <section class="section" id="core">
+      <h2 class="section-title">
+        <span class="icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/>
+          </svg>
+        </span>
+        二、核心功能：拜访全流程操作
+      </h2>
+
+      <h3 class="subsection-title" id="core-before">（一）拜访前：创建活动与准备</h3>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">1</div>
+        <div><strong>创建拜访活动</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">点击首页 <span class="tag-btn">开始新的拜访活动</span>，进入活动页面。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">2</div>
+        <div><strong>输入企业信息</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">输入企业名称，系统会自动匹配企业的<strong>统一信用代码</strong>和<strong>地址</strong>。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">3</div>
+        <div><strong>选择拜访时间与目的</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">选择拜访时间（默认为创建活动当日，可手动修改）；选择拜访目的，可直接选择预设选项，也可选择<strong>自定义</strong>自行输入。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">4</div>
+        <div><strong>生成提问大纲</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">填写完成后，可点击 <span class="tag-btn">生成提问大纲</span>。提问大纲分为 3 个页签：</p>
+          <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+            <span class="tag-btn">调研手卡</span>
+            <span class="tag-btn">拜访框架提纲</span>
+            <span class="tag-btn">注意事项</span>
+          </div>
+          <p style="margin-top: 8px; color: var(--gray-500); font-size: 13px;">点击 <span class="tag-btn">生成</span> 可生成具体内容，点击 <span class="tag-btn">重新生成</span> 可再次生成。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">5</div>
+        <div><strong>导出大纲</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">点击 <span class="tag-btn">导出</span> 可将所有页签内容作为 Word 文档进行预览和导出。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">6</div>
+        <div><strong>查看企业信息</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">点击 <span class="tag-btn">经营范围</span> 可展开查看该企业的经营范围。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p><strong>补充：</strong>可以通过 <span class="tag-btn">企业</span> &rarr; <span class="tag-btn">查看企业信息</span> 查看针对于该企业的<strong>深度调研报告</strong>，快速对该企业进行了解。</p>
+      </div>
+
+      <div class="card card-tip">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--warm-500)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <div><strong>小提示：</strong>提问大纲可帮助快速梳理沟通思路，即使对细节不熟悉，也能按大纲引导交流。</div>
+        </div>
+      </div>
+
+      <!-- （二）拜访中 -->
+      <h3 class="subsection-title" id="core-during">（二）拜访中：录音与记录</h3>
+
+      <h4 class="sub-subsection-title">1. 开始录音</h4>
+      <div class="card card-highlight">
+        <p>无论从 <span class="tag-btn">生成提问大纲</span> 还是 <span class="tag-btn">直接开始录音</span> 进入，点击 <span class="tag-btn">开始录音</span> 即可启动。</p>
+        <p style="margin-top: 8px;">录音时可随时点击 <span class="tag-btn">提问大纲</span> 查看沟通要点，不影响录音。</p>
+      </div>
+
+      <div class="card card-warning" style="margin-top: 14px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red-500)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div><strong>注意：</strong>录音中不要锁屏、退出小程序，避免录音中断。</div>
+        </div>
+      </div>
+
+      <h4 class="sub-subsection-title">2. 暂停与结束</h4>
+      <div class="steps-flow">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text">点击 <span class="tag-btn">暂停</span> 可临时停止录音</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text">再次点击 <span class="tag-btn">开始录音</span> 可继续</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text">点击 <span class="tag-btn">结束</span> 则保存录音</div>
+        </div>
+      </div>
+
+      <!-- （三）拜访后 -->
+      <h3 class="subsection-title" id="core-after">（三）拜访后：录音关联与内容整理</h3>
+
+      <h4 class="sub-subsection-title">1. 录音关联</h4>
+
+      <div class="card card-highlight">
+        <p><strong>场景一：从「开始新的拜访活动」进入录音</strong></p>
+        <p style="color: var(--gray-500); margin-top: 4px; font-size: 14px;">结束后会自动保存到对应企业的记录中。</p>
+      </div>
+
+      <div class="card card-highlight" style="margin-top: 12px;">
+        <p><strong>场景二：从「直接开始录音」进入（临时拜访）</strong></p>
+        <p style="color: var(--gray-500); margin-top: 4px; font-size: 14px;">录音会先存到 <span class="tag-btn">未关联录音</span>。</p>
+        <div class="steps-flow" style="margin-top: 12px;">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">进入 <span class="tag-btn">企业</span> 模块，找到 <span class="tag-btn">未关联录音</span>，勾选需要整理的录音</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">点击 <span class="tag-btn">去关联</span>，选择对应的企业，即可将录音移至该企业的记录中</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin: 14px 0; color: var(--gray-500); font-size: 14px;">或从 <span class="tag-btn">企业</span> 模块中直接选择要关联的企业，通过点击 <span class="tag-btn">关联录音</span> 选择录音进行关联。</p>
+
+      <h4 class="sub-subsection-title">2. 录音导入</h4>
+      <div class="card card-highlight">
+        <p><strong>从微信聊天导入：</strong>在录音列表页，点击 <span class="tag-btn">导入</span>，选择 <span class="tag-btn">从微信聊天中选择</span>，选中微信聊天记录中的文件进行导入。导入的录音文件在图标上显示"导入"。</p>
+      </div>
+      <div class="card card-highlight" style="margin-top: 12px;">
+        <p><strong>从本地文件夹导入：</strong>在录音列表页，点击 <span class="tag-btn">导入</span>，选择 <span class="tag-btn">从本地文件夹选择</span>，选中手机系统中的文件进行导入。导入的录音文件在图标上显示"导入"。</p>
+      </div>
+
+      <h4 class="sub-subsection-title">3. 内容处理：转写、纪要与商机提取</h4>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">1</div>
+        <div><strong>语音转文字</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">在录音列表页，找到目标录音，点击 <span class="tag-btn">转成文字</span>，生成录音的文字记录。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">2</div>
+        <div><strong>AI 智能分析</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">转写后可切换至以下三个模块：</p>
+          <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+            <span class="tag-btn">AI 纪要</span>
+            <span class="tag-btn">商机提取</span>
+            <span class="tag-btn">项目建议书</span>
+          </div>
+          <p style="margin-top: 8px; color: var(--gray-400); font-size: 13px;">AI纪要将自动总结关键信息；商机提取可识别潜在合作点（如客户提到的需求、计划等）；项目建议书提供下一步行动指南。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">3</div>
+        <div><strong>生成项目建议书</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">用户如果需要项目建议书，点击 <span class="tag-btn">生成项目建议书</span>，将会按照商机提取的结果生成项目建议书，包含<strong>问题诊断、方案构思、预期效益、实施路径</strong>等部分。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">4</div>
+        <div><strong>编辑与导出</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">若对生成结果不满意，可点击 <span class="tag-btn">重新生成</span>；需要调整部分内容可点击 <span class="tag-btn">编辑</span>。用户可以选择将内容以 <strong>Word 文档</strong>或 <strong>PDF 文档</strong>的格式进行导出和分享。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 三、数据管理 ===== -->
+    <section class="section" id="data">
+      <h2 class="section-title">
+        <span class="icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </span>
+        三、数据管理：企业记录与文件操作
+      </h2>
+
+      <h3 class="subsection-title">1. 查看企业记录</h3>
+      <div class="card card-highlight card-step">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div>
+          <p>点击底部 <span class="tag-btn">企业</span> 模块，可看到所有拜访过的企业列表，包含每个企业的<strong>拜访次数、最近拜访时间</strong>。</p>
+          <p style="margin-top: 6px; color: var(--gray-500); font-size: 14px;">点击企业名称，可查看深度调研信息及该企业的所有拜访活动。点击拜访活动，可查看该次拜访的<strong>提问大纲、录音列表和转写记录</strong>。</p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">2. 新建企业</h3>
+      <div class="card card-highlight">
+        <p>点击 <span class="tag-btn">+</span>，输入新建企业名称，查看统一信用代码和企业地址，可新增企业。</p>
+      </div>
+
+      <h3 class="subsection-title">3. 删除与恢复</h3>
+      <div class="card card-highlight card-step">
+        <div class="step-number">1</div>
+        <div><strong>删除企业</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">在企业列表中<strong>向左滑动</strong>企业名称，点击 <span class="tag-btn">删除</span>，企业及所有关联记录会移至 <span class="tag-btn">回收站</span>。</p>
+        </div>
+      </div>
+
+      <div class="card card-highlight card-step">
+        <div class="step-number">2</div>
+        <div><strong>恢复 / 彻底删除</strong>
+          <p style="margin-top: 4px; color: var(--gray-500); font-size: 14px;">进入 <span class="tag-btn">我的</span> &rarr; <span class="tag-btn">回收站</span>，向左滑动记录，可选择 <span class="tag-btn">还原</span>（恢复到企业列表）或 <span class="tag-btn">删除</span>（彻底删除，无法恢复）。</p>
+        </div>
+      </div>
+
+      <div class="card card-warning">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red-500)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div><strong>注意：</strong>删除单个录音、转写记录等（非企业级）会直接删除，无法恢复，操作时请谨慎。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 四、个人设置 ===== -->
+    <section class="section" id="settings">
+      <h2 class="section-title">
+        <span class="icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </span>
+        四、个人设置：账号与系统
+      </h2>
+
+      <h3 class="subsection-title">【我的】模块功能</h3>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="f-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </div>
+          <div class="f-label">退出</div>
+          <p style="font-size:12.5px; color: var(--gray-400); margin-top:6px;">退出当前账号，返回未登录状态</p>
+        </div>
+        <div class="feature-item">
+          <div class="f-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+          </div>
+          <div class="f-label">回收站</div>
+          <p style="font-size:12.5px; color: var(--gray-400); margin-top:6px;">管理被删除的企业记录（仅企业级数据可恢复）</p>
+        </div>
+        <div class="feature-item">
+          <div class="f-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          <div class="f-label">设置</div>
+          <p style="font-size:12.5px; color: var(--gray-400); margin-top:6px;">查看《用户协议》《隐私政策》，注销账号</p>
+        </div>
+      </div>
+
+      <div class="card card-warning" style="margin-top: 18px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red-500)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <div><strong>重要提醒：</strong><span class="tag-btn">注销账号</span>会永久删除该账号下的所有数据，谨慎操作。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 五、分享 ===== -->
+    <section class="section" id="share">
+      <h2 class="section-title">
+        <span class="icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </span>
+        五、分享
+      </h2>
+      <div class="card card-highlight">
+        <p>点击 <span class="tag-btn">&hellip;</span>，可选择 <span class="tag-btn">转发给朋友</span> 或 <span class="tag-btn">分享到朋友圈</span>。</p>
+      </div>
+    </section>
+
+    <!-- ===== 六、意见反馈 ===== -->
+    <section class="section" id="feedback">
+      <h2 class="section-title">
+        <span class="icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </span>
+        六、意见反馈
+      </h2>
+      <div class="card card-highlight">
+        <p>点击底部 <span class="tag-btn">我的</span> 模块，选择 <span class="tag-btn">意见反馈</span>，输入您的意见和建议。</p>
+        <p style="margin-top: 8px; color: var(--gray-500); font-size: 13px;">V1.5 新增功能：支持上传图片、查看反馈回复、后台回复功能。</p>
+      </div>
+    </section>
+
+    <!-- ===== 七、温馨提示 ===== -->
+    <section class="section" id="tips">
+      <h2 class="section-title">
+        <span class="icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </span>
+        七、温馨提示
+      </h2>
+
+      <div class="card card-tip card-step">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--warm-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div><strong>保持前台运行</strong>
+          <p style="margin-top: 4px; color: var(--gray-500);">录音时请保持小程序在前台，不要锁屏或切换应用，避免录音中断。</p>
+        </div>
+      </div>
+
+      <div class="card card-tip card-step">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--warm-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div><strong>鸿蒙系统兼容性</strong>
+          <p style="margin-top: 4px; color: var(--gray-500);">鸿蒙系统由于兼容性问题，录音功能暂不可使用，请您通过系统录音导入的形式进行操作。</p>
+        </div>
+      </div>
+
+      <div class="card card-tip card-step">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--warm-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </div>
+        <div><strong>及时关联录音</strong>
+          <p style="margin-top: 4px; color: var(--gray-500);">临时录音记得及时关联，避免遗漏重要客户的沟通记录。</p>
+        </div>
+      </div>
+
+      <div class="card card-tip card-step">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--warm-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+          </svg>
+        </div>
+        <div><strong>AI 结果可反复调整</strong>
+          <p style="margin-top: 4px; color: var(--gray-500);">AI 生成的纪要或商机提取若不符合需求，可多次点击 <span class="tag-btn">重新生成</span> 调整。</p>
+        </div>
+      </div>
+
+      <div class="card card-tip card-step">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--warm-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div><strong>全流程操作指引</strong>
+          <p style="margin-top: 4px; color: var(--gray-500);">按以上步骤操作，即可快速完成从拜访准备到记录整理的全流程，让客户沟通更高效。</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- .content -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-brand">小镝AI拜访助手 操作手册</div>
+    <div class="footer-meta">
+      版本号：<strong>V1.5</strong>
+      <span class="footer-sep">&middot;</span>
+      更新日期：<strong>2025年12月16日</strong>
+      <span class="footer-sep">&middot;</span>
+      编辑日期：<strong>2025年12月18日</strong>
+      <br>
+      团队协作需求请联系：王雷 15091007230
+    </div>
+  </footer>
+
+</main>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<script>
+  // ========== Mobile menu ==========
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+
+  function openMenu() {
+    sidebar.classList.add('open');
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.sidebar-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) closeMenu();
+    });
+  });
+
+  // ========== Active nav highlight ==========
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+  function updateActiveLink() {
+    let current = '';
+    const scrollY = window.scrollY + 80;
+    sections.forEach(section => {
+      if (scrollY >= section.offsetTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+
+  // ========== Scroll reveal ==========
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.08
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => revealObserver.observe(section));
+
+  // ========== Back to top ==========
+  const backToTopBtn = document.getElementById('backToTop');
+
+  function toggleBackToTop() {
+    if (window.scrollY > 500) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Initial reveal for already visible sections
+  setTimeout(() => {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        section.classList.add('revealed');
+        revealObserver.unobserve(section);
+      }
+    });
+  }, 200);
+</script>
+
+</body>
+</html>
